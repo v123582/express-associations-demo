@@ -5,6 +5,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Post.associate = function(models) {
     Post.hasMany(models.Comment);
+    Post.belongsToMany(models.Tag, {through: "PostTags"});
   };
   return Post;
 };
